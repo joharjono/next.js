@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities{
+  .cardWrapp{
+    @apply relative bg-gradient-to-b from-slate-700 to-slate-800 rounded-2xl overflow-hidden
+
+  }
+  .cardWrapp::before{
+      background: conic-gradient(
+        rgba(224, 144,182, 0.4) 0deg,
+        rgba(224, 144,182, 0.4) 0deg,
+        transparent 40deg
+      );
+      @apply absolute h-[150%] w-[150%] left-[-25%] top-[-25%] content-[''] animate-border-spin
+  }
+  .card{
+    @apply absolute w-[calc(100%-2px)] h-[calc(100%-2px)] top-[1px] left-[1px] bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl;
+  }
+}
+
+
+
+
+--------------------------------------------------
+<div class="flex h-[100vh] w-[100vw] items-center justify-center bg-slate-950 text-white">
+  <div class="cardWrapp h-[200px] w-[200px]">
+    <div class="flex card text-xl justify-center items-center">Card</div>
+  </div>
+</div>
+
+
+
+------------------------------------------------
+/** @type {import('tailwindcss').Config} */
+export default {
+  theme: {
+    extend: {
+      keyframes: {
+        'border-spin': {
+          '100%': {
+            transform: 'rotate(-360deg)',
+          },
+        },
+      },
+      animation: {
+        'border-spin': 'border-spin 7s linear infinite',
+      },
+    },
+  },
+  plugins: [],
+}

@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+* text=auto
+*.ts     text diff=typescript
+*.tsx    text diff=typescript
+*.js     text diff=javascript
+*.json   text
+*.md     text

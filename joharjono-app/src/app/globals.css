@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  body {
+    @apply bg-[#f5f6f7] text-gray-800 dark:bg-[#0a0a23] dark:text-gray-300;
+  }
+
+  .rotate-90 {
+    @apply transform rotate-90;
+  }
+
+  .underline-quarter::after {
+    content: "";
+    @apply block w-[calc(100%+20px)] h-1/2 bg-current absolute left-[-10px] top-[30%] rotate-[-5deg];
+    color: rgba(168, 85, 247, 1);
+    z-index: -1;
+  }
+
+  .profile-wrapper {
+    @apply relative bg-gradient-to-b from-slate-700 to-slate-800 rounded-full overflow-hidden border-yellow-500 border-2 dark:border-none;
+  }
+  .profile-wrapper::before {
+    background: conic-gradient(
+      rgba(224, 144, 182, 0.4) 0deg,
+      rgba(224, 144, 182, 0.4) 0deg,
+      transparent 40deg
+    );
+    @apply absolute h-[150%] w-[150%] left-[-25%] top-[-25%] content-[''] animate-border-spin;
+  }
+  .profile {
+    @apply absolute w-[calc(100%-5px)] h-[calc(100%-5px)] top-[2.5px] left-[2.5px] bg-gradient-to-b from-slate-800 to-slate-900 rounded-full;
+  }
+
+  .hover-border-center::after {
+    content: "";
+    @apply block w-1/2 h-0.5 bg-transparent mx-auto transition-colors duration-300;
+  }
+  .hover-border-center:hover::after {
+    @apply bg-purple-500;
+  }
+  .hover-border-center {
+    @apply relative;
+  }
+}
